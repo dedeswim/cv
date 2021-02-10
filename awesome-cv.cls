@@ -179,6 +179,8 @@
   BoldItalicFont=*-MediumItalic,
 ]{Roboto}
 
+\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
