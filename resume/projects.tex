@@ -10,10 +10,24 @@
 \begin{cventries}
   %---------------------------------------------------------
   \cventry
+  {RobustBench: a standardized adversarial robustness benchmark} % Job title
+  {} % Organization
+  {} % Location
+  {EPFL, Graded 6/6} % Date(s)
+  {
+    \begin{cvitems} % Description(s) of tasks/responsibilities
+      \item \textbf{Benchmark and leaderboard} to analyze the \textbf{robustness} of image classifiers, under different threat models.
+      \item \textbf{Model Zoo} containing 60+ \textbf{PyTorch} models trained robustly for CIFAR-10 and CIFAR-100.
+      \item \textbf{Analysis} on the current progress in adversarial robustness: I worked on the \textbf{Lipschitzness} of robust models, as well as an \textbf{ensemble black-box transfer attack}.
+    \end{cvitems}
+  }
+  
+  %---------------------------------------------------------
+  \cventry
   {Counteracting DeepFakes} % Job title
   {} % Organization
   {} % Location
-  {Graded 5.75/6} % Date(s)
+  {EPFL, Graded 5.75/6} % Date(s)
   {
     \begin{cvitems} % Description(s) of tasks/responsibilities
       \item Term \textbf{Research Project} run at Prof. Troncoso's SPRING Lab at EPFL.
@@ -22,7 +36,34 @@
       \item Stack: \textbf{PyTorch}, \textbf{TensorFlow} and \textbf{Keras}, on top of \textbf{Python}.
     \end{cvitems}
   }
+  
+  \cventry
+  {Membership Inference Attacks against ``unlearned" GANs} % Job title
+  {} % Organization
+  {} % Location
+  {armasuisse CYD Campus} % Date(s)
+  {
+    \begin{cvitems} % Description(s) of tasks/responsibilities
+      \item Adapt the MIA technique proposed by the \textit{GAN-Leaks} work (by Chen at al.), in order to improve the performance when the adversary can \textbf{observe the model before and after retraining} given the removal of some datapoints.
+      \item Provide intuition of why the \textbf{unlearning setting makes membership inference easier}.
+      \item The technique achieved \textbf{promising results} when attacking DCGAN trained on the CelebA dataset
+      \item Stack: \textbf{PyTorch}, \textbf{PyTorch Lightning}, \textbf{CometML}, on top of \textbf{Python}.
+    \end{cvitems}
+  }
 
+  \cventry
+  {Distributed logging library configuration} % Job title
+  {} % Organization
+  {} % Location
+  {Bloomberg LP} % Date(s)
+  {
+    \begin{cvitems} % Description(s) of tasks/responsibilities
+      \item Move the configuration of a \textbf{distributed logging library} from an internal technology to a \textbf{centralized SQL DB}.
+      \item Used a \textbf{cache} and created a \textbf{C++ based service} to fetch the configuration and serve it to the client library.
+      \item The configuration is checked \textbf{\textasciitilde 1M times per minute}, and the usage of the cache gave a \textbf{\textasciitilde 23x speed improvement} w.r.t. querying the DB.
+      \item Stack: \textbf{C++03}, \textbf{C++17}, \textbf{Comdb2} (SQL).
+    \end{cvitems}
+  }
 
   % ---------------------------------------------------------
   % \cventry
@@ -33,22 +74,24 @@
   % {
   %   \begin{cvitems} % Description(s) of tasks/responsibilities
   %     \item Implementation of \textbf{Jaccard similarity based LSH for approximate K-NNs}.
-  %     \item Implementation of a \textbf{MapReduce-friendly theta-join} according to the 1-Bucket-Theta algorithm with additional Reduce optimizations.
+  %     \item Implementation of a \textbf{MapReduce-friendly theta-join} according to the 1-Bucket-Theta algorithm with additional Reduce % optimizations.
   %     \item Stack: \textbf{Scala} and \textbf{Spark}.
   %   \end{cvitems}
   % }
+  
+    % ---------------------------------------------------------
 
   %---------------------------------------------------------
-  \cventry
-  {NeurIPS 2019 Reproducibility Report} % Job title
-  {} % Organization
-  {} % Location
-  {Graded 6/6} % Date(s)
-  {
-    \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item Reproducibility report of a NeurIPS 2019 paper about \textbf{black-box adversarial attacks against ML models}, submitted to the NeurIPS 2019 Reproducibility Challenge.
-      \item With our re-implementation we \textbf{reduced by 76\% the median attack time} wrt the paper. Stack: \textbf{Python}, \textbf{PyTorch}, \LaTeX.
-    \end{cvitems}
-  }
+  % \cventry
+  % {NeurIPS 2019 Reproducibility Report} % Job title
+  % {} % Organization
+  % {} % Location
+  % {Graded 6/6} % Date(s)
+  % {
+  %   \begin{cvitems} % Description(s) of tasks/responsibilities
+  %     \item Reproducibility report of a NeurIPS 2019 paper about \textbf{black-box adversarial attacks against ML models}, submitted to % the NeurIPS 2019 Reproducibility Challenge.
+  %     \item With our re-implementation we \textbf{reduced by 76\% the median attack time} wrt the paper. Stack: \textbf{Python}, % \textbf{PyTorch}, \LaTeX.
+  %   \end{cvitems}
+  % }
 
 \end{cventries}
