@@ -16,9 +16,8 @@
   {EPFL, Graded 6/6} % Date(s)
   {
     \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item \textbf{Benchmark and leaderboard} to analyze the \textbf{robustness} of image classifiers, under different threat models.
-      \item \textbf{Model Zoo} containing 60+ \textbf{PyTorch} models trained robustly for CIFAR-10 and CIFAR-100.
-      \item \textbf{Analysis} on the current progress in adversarial robustness: I worked on the \textbf{Lipschitzness} of robust models, as well as an \textbf{ensemble black-box transfer attack}.
+      \item \textbf{Benchmark and leaderboard} to analyze the \textbf{robustness} of image classifiers, and \textbf{Model Zoo} containing 60+ \textbf{PyTorch} models trained robustly.
+      \item \textbf{Analysis} on the progress in robustness: worked on the \textbf{Lipschitzness} of robust models, and on a new \textbf{ensemble black-box transfer attack}, capable of \textbf{improving the success rate by up to 70\%} w.r.t. transfer attacks carried with one model only.
     \end{cvitems}
   }
   
@@ -30,40 +29,39 @@
   {EPFL, Graded 5.75/6} % Date(s)
   {
     \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item Term \textbf{Research Project} run at Prof. Troncoso's SPRING Lab at EPFL.
-      \item Attempt to run \textbf{poisoning} attacks via \textbf{Influence Functions} (by Koh et al.) to counteract DeepFakes training.
-      \item The attack was tested on MNIST-trained \textbf{autoencoder} and shown \textbf{major distortions} in the decoder outputs after the poisoned training.
-      \item Stack: \textbf{PyTorch}, \textbf{TensorFlow} and \textbf{Keras}, on top of \textbf{Python}.
+      \item Term \textbf{Research Project} run at \textbf{Prof. Troncoso}'s SPRING Lab at EPFL, worked on \textbf{poisoning} attacks via \textbf{Influence Functions} against DeepFakes.
+      \item Tested the attack on MNIST-trained \textbf{autoencoder} which showed \textbf{major distortions} in its output after the poisoned training.
+      % \item Stack: \textbf{PyTorch}, \textbf{TensorFlow} and \textbf{Keras}, on top of \textbf{Python}.
     \end{cvitems}
   }
   
-  \cventry
-  {Membership Inference Attacks against ``unlearned" GANs} % Job title
-  {} % Organization
-  {} % Location
-  {armasuisse CYD Campus} % Date(s)
-  {
-    \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item Adapt the MIA technique proposed by the \textit{GAN-Leaks} work (by Chen at al.), in order to improve the performance when the adversary can \textbf{observe the model before and after retraining} given the removal of some datapoints.
-      \item Provide intuition of why the \textbf{unlearning setting makes membership inference easier}.
-      \item The technique achieved \textbf{promising results} when attacking DCGAN trained on the CelebA dataset
-      \item Stack: \textbf{PyTorch}, \textbf{PyTorch Lightning}, \textbf{CometML}, on top of \textbf{Python}.
-    \end{cvitems}
-  }
+  % \cventry
+  % {Membership Inference Attacks against ``unlearned" GANs} % Job title
+  % {} % Organization
+  % {} % Location
+  % {armasuisse CYD Campus} % Date(s)
+  % {
+  %   \begin{cvitems} % Description(s) of tasks/responsibilities
+  %     \item Adapt the \textbf{MIA} technique proposed by the \textit{GAN-Leaks} work (by Chen at al.), to work after the removal some % datapoints from the training set.
+  %     % \item Provide intuition of why the \textbf{unlearning setting makes membership inference easier}.
+  %     \item The technique achieved \textbf{promising results} when attacking DCGAN trained on the CelebA dataset
+  %     % \item Stack: \textbf{PyTorch}, \textbf{PyTorch Lightning}, \textbf{CometML}, on top of \textbf{Python}.
+  %   \end{cvitems}
+  % }
 
-  \cventry
-  {Distributed logging library configuration} % Job title
-  {} % Organization
-  {} % Location
-  {Bloomberg LP} % Date(s)
-  {
-    \begin{cvitems} % Description(s) of tasks/responsibilities
-      \item Move the configuration of a \textbf{distributed logging library} from an internal technology to a \textbf{centralized SQL DB}.
-      \item Used a \textbf{cache} and created a \textbf{C++ based service} to fetch the configuration and serve it to the client library.
-      \item The configuration is checked \textbf{\textasciitilde 1M times per minute}, and the usage of the cache gave a \textbf{\textasciitilde 23x speed improvement} w.r.t. querying the DB.
-      \item Stack: \textbf{C++03}, \textbf{C++17}, \textbf{Comdb2} (SQL).
-    \end{cvitems}
-  }
+  %\cventry
+  %{Distributed logging library configuration} % Job title
+  %{} % Organization
+  %{} % Location
+  %{Bloomberg LP} % Date(s)
+  %{
+  %  \begin{cvitems} % Description(s) of tasks/responsibilities
+  %    \item Move the configuration of a \textbf{distributed logging library} from an internal technology to a \textbf{centralized SQL DB}, %using a \textbf{cache} and a \textbf{C++ service}.
+  %    % \item Used  to fetch the configuration and serve it to the client library.
+  %    \item The configuration is checked \textbf{\textasciitilde 1M times per minute}, and the usage of the cache gave a %\textbf{\textasciitilde 23x speed improvement} w.r.t. querying the DB.
+  %    % \item Stack: \textbf{C++03}, \textbf{C++17}, \textbf{Comdb2} (SQL).
+  %  \end{cvitems}
+  %}
 
   % ---------------------------------------------------------
   % \cventry
