@@ -409,9 +409,9 @@
 %                Commands for utilities
 %-------------------------------------------------------------------------------
 % Use to align an element of tabular table
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 % Use to draw horizontal line with specific thickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
@@ -608,9 +608,8 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{-1pt}
+  \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrytitlestyle{#1} & \entrydatestyle{#4} \\}
@@ -682,7 +681,7 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{-2.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -690,7 +689,6 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
 }
 
 
@@ -768,132 +766,72 @@
 
 \renewcommand*{\bibfont}{\footnotesize}
 
-% Avoid splitting entries across page break (only for 3 or fewer lines)
-% Tip: http://tex.stackexchange.com/a/51261
-\AtBeginEnvironment{thebibliography}{%
-   \clubpenalty10000
-   \@clubpenalty \clubpenalty
-   \widowpenalty10000
-   \interlinepenalty5000}
+% Custom bibliography environment without labels (no [Deb+26] etc.)
+\defbibenvironment{bibliography}
+  {\list{}
+     {\setlength{\leftmargin}{1.5ex}%
+      \setlength{\itemindent}{-1.5ex}%
+      \setlength{\itemsep}{0.5\baselineskip}%
+      \setlength{\parsep}{0pt}}}
+  {\endlist}
+  {\item}
 
-% Customized format, based on Fancy CV template created by Adrien Friggeri
-% \DeclareFieldFormat[article]{title}{#1\par}
-% \DeclareFieldFormat[inproceedings]{title}{#1\par}
-% \DeclareFieldFormat[misc]{title}{#1\par}
-% \DeclareFieldFormat[report]{title}{#1\par}
-% \DeclareFieldFormat[incollection]{title}{#1\par}
+% Customized format for CV bibliography
 
-\DeclareBibliographyDriver{article}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \usebibmacro{journal+issuetitle}%
-    \setunit{\space}%
-    \printfield{pages}%
-    \newunit%
-    \printlist{publisher}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
+% Title format: italic with hyperlink
+\DeclareFieldFormat[inproceedings]{title}{%
+  \iffieldundef{url}%
+    {\textit{``#1''}}%
+    {\textit{\href{\thefield{url}}{``#1''}}}%
 }
+\DeclareFieldFormat[misc]{title}{%
+  \iffieldundef{url}%
+    {\textit{``#1''}}%
+    {\textit{\href{\thefield{url}}{``#1''}}}%
+}
+\DeclareFieldFormat[inproceedings]{note}{#1}
+\DeclareFieldFormat[misc]{note}{#1}
+\DeclareFieldFormat[inproceedings]{booktitle}{#1}
 
 \DeclareBibliographyDriver{inproceedings}{%
-    \descriptionstyle{
-        \printnames{author}%
-        \textbf{\printfield{title}}%
-        \setunit{\addcomma\space}%
-        \printfield{booktitle}%
-        \setunit{\addcomma\space}%
-        \printfield{venue}%
-        \setunit{\addcomma\space}%
-        \printfield{year}%
-        \setunit{\addcomma\space}%
-        \printfield{note}%
-        \setunit{\addcomma\space}%
-        \printfield{url}.%
-        \newunit%
-    }
-    \finentry
-  \par\vspace{0.3\baselineskip}
-}
-
-\DeclareBibliographyDriver{incollection}{%
-  \fontsize{9pt}{1em}%
-  \entrytitlestyle{\printfield{title}}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+  \descriptionstyle{%
+    \printnames{author}%
+    \setunit{\addcomma\space}%
+    \printfield{title}%
+    \setunit{\addcomma\space}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
-    \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
+    \iffieldundef{note}%
+      {}%
+      {\setunit{\addcomma\space}\printfield{note}}%
+    .%
+  }%
+  \par\vspace{0.3\baselineskip}%
 }
 
 \DeclareBibliographyDriver{misc}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{booktitle}%
-    \setunit*{\addcomma\space}%
-    \printfield{note}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
+  \descriptionstyle{%
+    \printnames{author}%
     \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
-}
-
-\DeclareBibliographyDriver{report}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{type}%
-    \setunit{\space}%
-    \printfield{number}%
+    \printfield{title}%
     \setunit{\addcomma\space}%
     \printfield{year}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
+    \iffieldundef{note}%
+      {}%
+      {\setunit{\addcomma\space}\printfield{note}}%
+    .%
+  }%
+  \par\vspace{0.3\baselineskip}%
 }
 
-% New syntax for flexible backend (BibLaTeX > v3.3)
+% Name format: I. Family
 \DeclareNameFormat{author}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
   \nameparts{#1}%
-  \ifthenelse{\value{listcount}=1}
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
-    \namepartfamily}%
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
-    \namepartfamily}%
-  \ifthenelse{\value{listcount}<\value{liststop}}
-  {\addcomma\space}
-  {}
+  \ifitemannotation{highlight}%
+    {\textbf{\namepartgiveni\space\namepartfamily}}%
+    {\namepartgiveni\space\namepartfamily}%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\addcomma\space}%
+    {}%
 }

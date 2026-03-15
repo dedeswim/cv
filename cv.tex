@@ -28,17 +28,9 @@
 \usepackage{etoolbox}
 \newboolean{bold}
 
-% \addbibresource{publications.bib}
+\addbibresource{publications.bib}
 
-\renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{highlight}
-    {\textbf{#1}}
-    {#1}}
-
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{highlight}
-    {\textbf{#1}}
-    {#1}}
+% Author name bolding is handled in the custom name format in awesome-cv.cls
     
 \usepackage{xeCJK}
 \setCJKmainfont[Scale=0.8]{Noto Sans CJK SC}
