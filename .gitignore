@@ -335,4 +335,6 @@ Temporary Items
 .apdisk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
-n
+
+### Claude Code ###
+.claude/
