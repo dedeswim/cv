@@ -13,6 +13,7 @@ jobs:
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
         with:
+          texlive_version: 2025
           packages: >
             scheme-basic
             xetex
@@ -59,9 +60,6 @@ jobs:
             fontspec
             lm
             lm-math
-
-      - name: Rebuild font cache
-        run: fc-cache -fv ~/texlive/texmf-dist/fonts/
 
       - name: Build CV
         run: latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode cv.tex
