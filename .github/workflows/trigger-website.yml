@@ -60,6 +60,9 @@ jobs:
             lm
             lm-math
 
+      - name: Rebuild font cache
+        run: fc-cache -fv ~/texlive/texmf-dist/fonts/
+
       - name: Build CV
         run: latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode cv.tex
 
