@@ -56,6 +56,7 @@ jobs:
             pdftexcmds
             stringenc
             uniquecounter
+            fontspec
             lm
             lm-math
 
