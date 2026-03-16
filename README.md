@@ -1,15 +1,11 @@
 # CV
 
-This is my personal CV, made using the [AwesomeCV](https://github.com/posquit0/Awesome-CV) template.
+My personal CV, built with [moderncv](https://github.com/moderncv/moderncv) and XeLaTeX.
 
-## Credit
+Uses [FontAwesome 5](https://github.com/FortAwesome/Font-Awesome) for general icons and [Academicons](https://github.com/jpswalsh/academicons) for the Google Scholar icon.
 
-[**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
+## Compiling
 
-[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
-
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
-
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
-
-[**AwesomeCV**](https://github.com/posquit0/Awesome-CV) is the template I am using.
+```bash
+latexmk -xelatex cv.tex
+```
