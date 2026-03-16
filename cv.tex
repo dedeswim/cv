@@ -6,10 +6,11 @@
 \moderncvstyle{classic}
 \moderncvcolor{blue}
 
-\usepackage{academicons}
+\usepackage{fontspec}
+\newfontfamily{\AIfont}{academicons.ttf}[Path=./]
 \providecolor{googlescholar}{named}{color1}
 \providecommand*{\googlescholarsocialsymbol}{}
-\renewcommand*{\googlescholarsocialsymbol}{{\color{googlescholar}\small\aiGoogleScholar}~}
+\renewcommand*{\googlescholarsocialsymbol}{{\color{googlescholar}\small{\AIfont\symbol{"E9D4}}}~}
 
 
 % Use filled bullet points instead of hollow circles

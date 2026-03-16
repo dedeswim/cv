@@ -13,13 +13,11 @@ jobs:
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
         with:
-          texlive_version: 2026
           packages: >
             scheme-basic
             xetex
             latexmk
             moderncv
-            academicons
             biblatex
             biber
             geometry
@@ -60,12 +58,6 @@ jobs:
             fontspec
             lm
             lm-math
-
-      - name: Debug font lookup
-        run: |
-          kpsewhich academicons.ttf || echo "NOT FOUND by kpsewhich"
-          find ~/texlive -name "academicons.ttf" 2>/dev/null || echo "NOT FOUND by find"
-          kpsewhich tuacademicons.fd || echo "fd NOT FOUND"
 
       - name: Build CV
         run: latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode cv.tex
